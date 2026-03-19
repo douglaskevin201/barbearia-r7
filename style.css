@@ -41,6 +41,10 @@ p {
   margin-bottom: 1rem;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 header {
     width: 100%;
@@ -90,10 +94,10 @@ header .logo img {
 main {
   width: 92%;
   max-width: 1200px; 
-  margin: 2rem auto;
+  margin: 3rem auto 2rem auto;
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 3.5rem;
 }
 
 .btn-agendar {
