@@ -1,105 +1,152 @@
 @charset "UTF-8";
 
-
+/* 1. VARIÁVEIS E RESET */
 :root {
-  --cor-fundo: #0f1014;        /* fundo geral */
-  --cor-texto: #f3f3f3;        /* texto principal */
-  --cor-acento: #e09b3c;       /* cores de destaque */
-  --cor-card: rgba(255,255,255,0.08); /* fundo de cards/áreas */
+  --cor-fundo: #0f1014;
+  --cor-texto: #f3f3f3;
+  --cor-acento: #e09b3c;
+  --cor-subtitulo: rgba(255, 255, 255, 0.7);
+  --font-titulo: 'Bebas Neue', sans-serif;
+  --font-corpo: 'Montserrat', sans-serif;
+  --cor-card: rgba(255,255,255,0.08);
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* 2. ESTILOS GERAIS */
 body {
-  background: var(--cor-fundo);
+  font-family: var(--font-corpo);
+  background-color: var(--cor-fundo);
   color: var(--cor-texto);
-  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
   line-height: 1.5;
 }
 
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.8rem 5%;
-  background: rgba(15, 16, 20, 0.95);
-  backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid rgba(244, 155, 60, 0.2);
-  
+h2 {
+  font-family: var(--font-titulo);
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  color: var(--cor-acento);
+  margin-bottom: 1rem;
 }
 
-header .logo img{
-    width: 70px;
-    height: 70px;
+p {
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--cor-subtitulo);
+  margin-bottom: 1rem;
+}
+
+/* 3. HEADER (AJUSTADO) */
+header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(15, 16, 20, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--cor-acento);
+}
+
+.header-top {
+    display: flex;
+    justify-content: center; /* Centraliza no mobile */
+    gap: 15px; /* Espaço entre os itens */
+    flex-wrap: wrap; /* Se a tela for pequena, ele quebra a linha em vez de sumir */
+    padding: 6px 5%;
+    background: var(--cor-acento);
+    color: #000;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.header-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 5%;
+}
+
+header .logo img {
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
     object-fit: cover;
-    border: 1px solid var(--cor-acento);
+    border: 2px solid var(--cor-acento);
 }
 
-header .menu{
+.header-actions {
     display: flex;
-    gap: 1.5rem;
+    align-items: center;
+    gap: 15px;
 }
 
-header .menu a{
-    color: var(--cor-texto);
-    text-decoration: none;
-    font-weight: 600;
-    padding: 0.35rem 0.55rem;
-    border-radius: 6px;
-    transition: background 0.2s;
+/* 4. MAIN E ESTRUTURA */
+main {
+  width: 92%;
+  max-width: 1200px; /* Evita que o site estique demais no PC */
+  margin: 2rem auto; /* Aumentamos a margem para desgrudar do header */
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; /* Mais espaço entre as seções (Hero, História, Curso) */
 }
 
-header .menu a:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
+/* 5. BOTÃO AGENDAR (ESTILO PREMIUM) */
 .btn-agendar {
     background: var(--cor-acento);
     color: #000;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
-    transition: transform 0.2s, filter 0.2s;
+    font-family: var(--font-titulo);
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
     text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px; /* Pontas levemente quadradas para um ar mais sério */
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(224, 155, 60, 0.3);
+    display: inline-block;
 }
 
 .btn-agendar:hover {
-    transform: translateY(-5px);
-    filter: brightness(1.05);
+    background-color: #f3ae52; /* Um dourado um pouco mais claro ao passar o mouse */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(224, 155, 60, 0.5);
 }
 
-main {
-  width: 90%;
-  margin: 1.5rem auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+.btn-agendar:active {
+    transform: translateY(0);
+}
+
+/* Ajuste fino para o ícone do WhatsApp ao lado do botão */
+.icon-link img {
+    display: block;
+    transition: opacity 0.2s;
+}
+
+.icon-link:hover img {
+    opacity: 0.8;
 }
 
 .hero {
     position: relative;
-    padding: 3rem 1.5rem;
-    min-height: 400px;
+    padding: 6rem 5%;
+    min-height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 1rem;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-                url(image/corte-1.jpeg) center/cover no-repeat;
-    border-left: 4px solid var(--cor-acento);
+    gap: 1.5rem;
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+                url('image/corte-1.jpeg') center/cover no-repeat;
+    border-left: 6px solid var(--cor-acento);
+    overflow: hidden;
 }
 
 .hero::before {
@@ -116,16 +163,19 @@ main {
 }
 
 .hero h2 {
-  font-size: 1.8rem;
-  line-height: 1.2;
+  font-size: 3.2rem;
+  max-width: 600px;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
   color: var(--cor-acento);
-  text-transform: uppercase;
+  text-shadow: 3px 3px 15px rgba(0,0,0,0.5);
 }
 
 .hero p {
-  font-size: 1rem;
-  max-width: 400px;
-  color: #f3f3f3;
+  font-size: 1.1rem;
+  max-width: 500px;
+  color: var(--cor-texto);
+  font-weight: 400;
 }
 
 .historia {
@@ -174,16 +224,18 @@ main {
 
 .selo-social {
   position: absolute;
-  bottom: 15px;
-  right: 15px;
-  width: 100px;
-  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8));
+  bottom: 12px;
+  right: 12px;
+  width: 55px;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+  pointer-events: none;
 }
 
 .selo-social img{
   width: 100%;
   height: auto;
   border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
 .destaque-social {
@@ -193,22 +245,26 @@ main {
   padding-left: 10px;
 }
 
+.texto-container {
+  margin-bottom: 1rem;
+}
+
 .reels-feed {
   display: flex;
   gap: 1.2rem;
   overflow-x: auto;
-  padding: 1rem 0;
+  padding: 10px 0 20px 0;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 }
 
 .reels-container {
   flex: 0 0 260px;
-  scroll-snap-align: start;
   position: relative;
-  border-radius: 20px;
+  border-radius: 18px;
   overflow: hidden;
-  border: 3px solid #333;
+  background: #000;
+  border: 2px solid rgba(224, 155, 60, 0.3);
   aspect-ratio: 9/16;
   
 }
