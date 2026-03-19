@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
-/* 1. VARIÁVEIS E RESET */
+
+
 :root {
   --cor-fundo: #0f1014;
   --cor-texto: #f3f3f3;
@@ -17,7 +18,6 @@
   padding: 0;
 }
 
-/* 2. ESTILOS GERAIS */
 body {
   font-family: var(--font-corpo);
   background-color: var(--cor-fundo);
@@ -41,7 +41,7 @@ p {
   margin-bottom: 1rem;
 }
 
-/* 3. HEADER (AJUSTADO) */
+
 header {
     width: 100%;
     position: sticky;
@@ -54,9 +54,9 @@ header {
 
 .header-top {
     display: flex;
-    justify-content: center; /* Centraliza no mobile */
-    gap: 15px; /* Espaço entre os itens */
-    flex-wrap: wrap; /* Se a tela for pequena, ele quebra a linha em vez de sumir */
+    justify-content: center; 
+    gap: 15px; 
+    flex-wrap: wrap; 
     padding: 6px 5%;
     background: var(--cor-acento);
     color: #000;
@@ -70,7 +70,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 5%;
+    padding: 15px 5%;
 }
 
 header .logo img {
@@ -87,17 +87,15 @@ header .logo img {
     gap: 15px;
 }
 
-/* 4. MAIN E ESTRUTURA */
 main {
   width: 92%;
-  max-width: 1200px; /* Evita que o site estique demais no PC */
-  margin: 2rem auto; /* Aumentamos a margem para desgrudar do header */
+  max-width: 1200px; 
+  margin: 2rem auto;
   display: flex;
   flex-direction: column;
-  gap: 2.5rem; /* Mais espaço entre as seções (Hero, História, Curso) */
+  gap: 2.5rem;
 }
 
-/* 5. BOTÃO AGENDAR (ESTILO PREMIUM) */
 .btn-agendar {
     background: var(--cor-acento);
     color: #000;
@@ -107,7 +105,7 @@ main {
     text-transform: uppercase;
     text-decoration: none;
     padding: 10px 20px;
-    border-radius: 4px; /* Pontas levemente quadradas para um ar mais sério */
+    border-radius: 4px; 
     letter-spacing: 1px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(224, 155, 60, 0.3);
@@ -115,7 +113,7 @@ main {
 }
 
 .btn-agendar:hover {
-    background-color: #f3ae52; /* Um dourado um pouco mais claro ao passar o mouse */
+    background-color: #f3ae52; 
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(224, 155, 60, 0.5);
 }
@@ -124,7 +122,6 @@ main {
     transform: translateY(0);
 }
 
-/* Ajuste fino para o ícone do WhatsApp ao lado do botão */
 .icon-link img {
     display: block;
     transition: opacity 0.2s;
@@ -180,28 +177,90 @@ main {
 
 .historia {
   background: var(--cor-card);
-  padding: 2rem 1.5rem;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  padding: 3rem 2rem;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  border: 1px solid rgba(244, 155, 60, 0.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-.historia img{
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.historia h2::after{
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--cor-acento);
+  margin-top: 8px;
+}
 
+.historia-fotos {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.foto-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.legenda-foto {
+    font-family: var(--font-titulo);
+    color: var(--cor-acento);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.historia img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid rgba(224, 155, 60, 0.2);
+    box-shadow: 8px 8px 0px var(--cor-acento);
+    transition: transform 0.3s ease;
+}
+
+.historia img:active {
+    transform: scale(0.98);
 }
 
 .acao-curso {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding: 2rem 1rem;
-  background-color: var(--cor-fundo);
+    background: linear-gradient(180deg, var(--cor-card) 0%, var(--cor-fundo) 100%);
+    padding: 3rem 1.5rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.texto-container h2 {
+    font-size: 1.8rem;
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+}
+
+.texto-container p {
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+}
+
+.destaque-social {
+    background: rgba(224, 155, 60, 0.1);
+    color: var(--cor-acento);
+    font-weight: 600;
+    font-style: italic;
+    padding: 1rem;
+    border-left: 4px solid var(--cor-acento);
+    border-radius: 0 8px 8px 0;
+    margin: 1.5rem 0;
 }
 
 .reels-container {
@@ -217,18 +276,18 @@ main {
 
 .video-reels {
   width: 100%;
+  height: 100%;
   display: block;
-  aspect-ratio: 9/16;
   object-fit: cover;
 }
 
 .selo-social {
   position: absolute;
-  bottom: 12px;
-  right: 12px;
-  width: 55px;
-  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
-  pointer-events: none;
+  bottom: 15px;
+  right: 15px;
+  width: 60px;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.8));
+  
 }
 
 .selo-social img{
@@ -238,35 +297,26 @@ main {
   border: 1px solid rgba(255,255,255,0.2);
 }
 
-.destaque-social {
-  color: var(--cor-acento);
-  font-weight: bold;
-  border-left: 3px solid var(--cor-acento);
-  padding-left: 10px;
-}
-
-.texto-container {
-  margin-bottom: 1rem;
-}
 
 .reels-feed {
-  display: flex;
-  gap: 1.2rem;
-  overflow-x: auto;
-  padding: 10px 0 20px 0;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+    display: flex;
+    gap: 1.2rem;
+    overflow-x: auto;
+    padding: 10px 5px 30px 5px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
 }
 
 .reels-container {
-  flex: 0 0 260px;
-  position: relative;
-  border-radius: 18px;
-  overflow: hidden;
-  background: #000;
-  border: 2px solid rgba(224, 155, 60, 0.3);
-  aspect-ratio: 9/16;
-  
+    flex: 0 0 280px;
+    scroll-snap-align: center;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #000;
+    border: 3px solid #333;
+    aspect-ratio: 9/16;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
 }
 
 .reels-feed::-webkit-scrollbar {
@@ -274,10 +324,6 @@ main {
 }
 
 
-.acao-curso h2 {
-  color: var(--cor-acento);
-  font-size: 1.4rem;
-}
 
 article {
   padding: 1.5rem;
@@ -285,10 +331,54 @@ article {
   border-radius: 10px;
 }
 
+/*  FOOTER */
 footer {
-  padding: 2rem;
-  text-align: center;
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.7);
+    background-color: #050505;
+    padding: 3rem 1.5rem 1.5rem 1.5rem;
+    border-top: 1px solid rgba(224, 155, 60, 0.2);
+    text-align: center;
+}
+
+.footer-brand h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.footer-logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: 1.5px solid var(--cor-acento);
+}
+
+.siga-nos {
+    font-family: var(--font-titulo);
+    color: var(--cor-acento);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin-top: 10px;
+}
+
+.social-icons img {
+    width: 28px;
+    filter: invert(1) opacity(0.7);
+    transition: 0.3s;
+}
+
+.footer-bottom {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.7rem;
+    opacity: 0.4;
 }
 
